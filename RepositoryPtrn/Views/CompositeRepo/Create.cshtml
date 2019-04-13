@@ -1,0 +1,141 @@
+﻿@model RepositoryPtrn.Core.ViewModels.CompositRepoViewModel
+
+@{
+    ViewData["Title"] = "CompositRepoView";
+}
+
+<h2>CompositRepoView</h2>
+
+<div>
+    <h4>CompositRepoViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal"></dl>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Repo1</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>SomeNumber</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Repo1Items)
+                {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.SomeNumber
+                    </td>
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h2>Repo2</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>SomeName</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.Repo2Items)
+                {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.SomeName
+                    </td>
+                    <td>
+                        @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<span>Add SomeName and SomeNumber with equal value</span>
+    <form asp-action="Create">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="SomeName" class="control-label"></label>
+            </div>
+            <div class="col-md-4">
+                <label asp-for="SomeNumber" class="control-label"></label>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input asp-for="SomeName" class="form-control" />
+                    <span asp-validation-for="SomeName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input asp-for="SomeNumber" class="form-control" />
+                    <span asp-validation-for="SomeNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <span>Add SomeName and SomeNumber with equal value</span>
+            <div class="form-group">
+                <label asp-for="SomeName" class="control-label"></label>
+                <input asp-for="SomeName" class="form-control" />
+                <span asp-validation-for="SomeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SomeNumber" class="control-label"></label>
+                <input asp-for="SomeNumber" class="form-control" />
+                <span asp-validation-for="SomeNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>*@
